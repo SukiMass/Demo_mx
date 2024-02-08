@@ -10,9 +10,10 @@ class Pages extends StatefulWidget {
 
 class _PagesState extends State<Pages> {
   @override
-  // final GlobalKey<NavigatorState> navigatorKey = GlobalKey<NavigatorState>();
+  
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       home: Scaffold(
         appBar: AppBar(
           iconTheme: IconThemeData(color: Colors.white),
@@ -117,7 +118,9 @@ Widget Navbar(BuildContext context) {
         ListTile(
           leading: Icon(Icons.logout),
           title: Text('Sign Out'),
-          onTap: () {},
+          onTap: () {
+            Navigator.of(context).pop();
+          },
         ),
       ],
     ),

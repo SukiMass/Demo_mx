@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:image_app/Technician/home.dart';
-import 'package:image_app/maintenance.dart';
+import 'package:image_app/pages.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
@@ -54,19 +54,19 @@ class _LoginScreenState extends State<LoginScreen> {
                 ),
                 InkWell(
                   onTap: () {
-                    if (_formfield.currentState!.validate() ||
-                        ownerPass == passController ||
-                        ownerUser == emailController) {
-                      Navigator.of(context).pushNamed(MyHomePage.routeName);
-                      emailController.clear();
-                      passController.clear();
-                    } else if (_formfield.currentState!.validate() ||
-                        techPass == passController ||
-                        techUser == emailController) {
+                    setState(() {
+                      if (_formfield.currentState!.validate()||ownerPass == passController&&
+                          ownerUser == emailController) {
+                        Navigator.of(context).pushNamed(Pages.routeName);
+                        emailController.clear();
+                        passController.clear();
+                      }
+                     else {
                       Navigator.of(context).pushNamed(HomeTech.routeTech);
                       emailController.clear();
                       passController.clear();
                     }
+                    });
                   },
                   child: Container(
                     height: 50,
@@ -99,7 +99,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     ),
                     TextButton(
                       onPressed: () {
-                        // Navigator.of(context).pushNamed(Pages.routeName);
+                        Navigator.of(context).pushNamed(HomeTech.routeTech);
                       },
                       child: Text(
                         'Sign Up',

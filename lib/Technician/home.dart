@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:image_app/Technician/service.dart';
+import 'package:image_app/login_screen.dart';
 import 'package:image_app/main.dart';
 
 class HomeTech extends StatefulWidget {
@@ -15,6 +16,9 @@ class _HomeTechState extends State<HomeTech> {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
+      theme: ThemeData(
+        primarySwatch: Colors.indigo,
+      ),
       home: Scaffold(
         appBar: AppBar(
           iconTheme: IconThemeData(color: Colors.white),
@@ -38,39 +42,41 @@ Widget Navbar(BuildContext context) {
     child: ListView(
       // padding: EdgeInsets.all(0),
       children: [
-        Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            Container(
-              height: 200,
-              width: double.infinity,
-              color: Colors.indigo,
-              padding: EdgeInsets.fromLTRB(10, 30, 10, 20),
-              child: Column(
-                children: [
-                  CircleAvatar(
-                    foregroundImage: AssetImage('images/circular_avatar.png'),
-                    radius: 30,
-                  ),
-                  SizedBox(
-                    height: 20,
-                  ),
-                  Text(
-                    'Technician',
-                    style: TextStyle(color: Colors.white),
-                  ),
-                  SizedBox(
-                    height: 10,
-                  ),
-                  Text(
-                    'Mike-SERV-194',
-                    style: TextStyle(color: Colors.white),
-                  ),
-                ],
-              ),
-            )
-          ],
+        Container(
+          color: Colors.indigo,
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              Container(
+                height: 200,
+                width: double.infinity,
+                padding: EdgeInsets.fromLTRB(10, 30, 10, 20),
+                child: Column(
+                  children: [
+                    CircleAvatar(
+                      foregroundImage: AssetImage('images/technician.png'),
+                      radius: 30,
+                    ),
+                    SizedBox(
+                      height: 20,
+                    ),
+                    Text(
+                      'Technician',
+                      style: TextStyle(color: Colors.white),
+                    ),
+                    SizedBox(
+                      height: 10,
+                    ),
+                    Text(
+                      'Mike-SERV-194',
+                      style: TextStyle(color: Colors.white),
+                    ),
+                  ],
+                ),
+              )
+            ],
+          ),
         ),
         ListTile(
           title: Text('Profile',
@@ -120,7 +126,7 @@ Widget Navbar(BuildContext context) {
           leading: Icon(Icons.logout),
           title: Text('Sign Out'),
           onTap: () {
-            Navigator.of(context).pop();
+            Navigator.of(context).pushNamed(LoginScreen.routeName);
           },
         ),
       ],

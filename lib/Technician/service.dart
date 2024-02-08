@@ -4,20 +4,22 @@ class ItemList {
   final String imageUrl;
   final String title;
   final List<String> checklists;
-  bool isCompleted;
+  List<bool> isCheckedList;
 
   ItemList({
     required this.imageUrl,
     required this.title,
     required this.checklists,
-    this.isCompleted = false,
-  });
+  }) : isCheckedList = List.filled(checklists.length, false);
+
+  bool get isCompleted =>
+      isCheckedList.every((value) => value); // Efficient completion check
 }
 
-class ChecklistItem extends StatelessWidget {
+class ChecklistItem extends StatefulWidget {
   final String text;
   final bool isChecked;
-  final ValueChanged onChanged;
+  final ValueChanged<bool> onChanged;
 
   const ChecklistItem({
     required this.text,
@@ -26,16 +28,27 @@ class ChecklistItem extends StatelessWidget {
   });
 
   @override
+  State<ChecklistItem> createState() => _ChecklistItemState();
+}
+
+class _ChecklistItemState extends State<ChecklistItem> {
+  @override
   Widget build(BuildContext context) {
     return Row(
       children: [
         IconButton(
-          icon: isChecked
+          icon: widget.isChecked
               ? Icon(Icons.check_circle)
               : Icon(Icons.check_circle_outline),
-          onPressed: () => onChanged(!isChecked),
+          onPressed: () => widget.onChanged(!widget.isChecked),
         ),
-        Text(text),
+        Expanded(
+          // Wrap text in Expanded widget
+          child: Text(
+            widget.text,
+            overflow: TextOverflow.clip, // Enable ellipsis for overflow
+          ),
+        ),
       ],
     );
   }
@@ -68,13 +81,12 @@ class _MyListState extends State<MyList> {
           itemBuilder: (context, index) {
             final item = widget.actualList[index];
             return Padding(
-              padding: const EdgeInsets.all(8.0),
+              padding: const EdgeInsets.all(12.0),
               child: Card(
                 elevation: 10,
                 child: Padding(
-                  padding: const EdgeInsets.all(8.0),
+                  padding: const EdgeInsets.all(12.0),
                   child: Column(
-                    verticalDirection: VerticalDirection.down,
                     children: [
                       Image.asset(
                         item.imageUrl,
@@ -95,16 +107,19 @@ class _MyListState extends State<MyList> {
                       ),
                       Divider(),
                       Column(
+                        crossAxisAlignment: CrossAxisAlignment.center,
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                        children: item.checklists.map((checklist) {
+                        children: item.checklists.asMap().entries.map((entry) {
+                          int checklistIndex = entry.key;
+                          String checklistText = entry.value;
+
                           return ChecklistItem(
-                            text: checklist,
-                            isChecked: item.checklists.indexOf(checklist) ==
-                                item.isCompleted,
+                            text: checklistText,
+                            isChecked: item.isCheckedList[checklistIndex],
                             onChanged: (newValue) {
                               setState(() {
                                 // Update completed checklists based on newValue
-                                item.isCompleted = newValue;
+                                item.isCheckedList[checklistIndex] = newValue;
                               });
                             },
                           );
@@ -112,26 +127,28 @@ class _MyListState extends State<MyList> {
                       ),
                       SizedBox(height: 10),
                       ElevatedButton(
-                        onPressed: () {
-                          showDialog(
-                              context: context,
-                              builder: (context) {
-                                return Dialog(
-                                    shape: RoundedRectangleBorder(
-                                        borderRadius:
-                                            BorderRadius.circular(20)),
-                                    elevation: 16,
-                                    child: Container(
-                                        padding: EdgeInsets.all(15),
-                                        child: Text(
-                                          'Service Completed!',
-                                          style: TextStyle(
-                                              fontSize: 20,
-                                              fontWeight: FontWeight.w600,
-                                              color: Colors.indigo),
-                                        )));
-                              });
-                        },
+                        onPressed: item.isCompleted
+                            ? () {
+                                showDialog(
+                                    context: context,
+                                    builder: (context) {
+                                      return Dialog(
+                                          shape: RoundedRectangleBorder(
+                                              borderRadius:
+                                                  BorderRadius.circular(20)),
+                                          elevation: 16,
+                                          child: Container(
+                                              padding: EdgeInsets.all(15),
+                                              child: Text(
+                                                'Service Completed!',
+                                                style: TextStyle(
+                                                    fontSize: 20,
+                                                    fontWeight: FontWeight.w600,
+                                                    color: Colors.indigo),
+                                              )));
+                                    });
+                              }
+                            : null,
                         child: Text(
                           'Complete',
                           style: TextStyle(fontWeight: FontWeight.bold),
@@ -170,17 +187,17 @@ final actualList = [
       'Change the Water Filter',
     ],
   ),
-  ItemList(
-    imageUrl: 'images/tv.jpg',
-    title: 'There is lines in the TV',
-    checklists: [
-      'Checklist 1',
-      'Checklist 2',
-      'Checklist 3',
-      'Checklist 4',
-      'Checklist 5',
-    ],
-  ),
+  // ItemList(
+  //   imageUrl: 'images/tv.jpg',
+  //   title: 'There is lines in the TV',
+  //   checklists: [
+  //     'Checklist 1',
+  //     'Checklist 2',
+  //     'Checklist 3',
+  //     'Checklist 4',
+  //     'Checklist 5',
+  //   ],
+  // ),
 ];
 
 // void main() {
