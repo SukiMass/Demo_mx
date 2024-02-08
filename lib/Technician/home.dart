@@ -1,18 +1,20 @@
 import 'package:flutter/material.dart';
-import 'package:image_app/maintenance.dart';
+import 'package:image_app/Technician/service.dart';
+import 'package:image_app/main.dart';
 
-class Pages extends StatefulWidget {
-  const Pages({super.key});
-  static const routeName = '/HomeScreen';
+class HomeTech extends StatefulWidget {
+  const HomeTech({super.key});
+  static const routeTech = '/HomeTech';
+
   @override
-  State<Pages> createState() => _PagesState();
+  State<HomeTech> createState() => _HomeTechState();
 }
 
-class _PagesState extends State<Pages> {
+class _HomeTechState extends State<HomeTech> {
   @override
-  // final GlobalKey<NavigatorState> navigatorKey = GlobalKey<NavigatorState>();
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       home: Scaffold(
         appBar: AppBar(
           iconTheme: IconThemeData(color: Colors.white),
@@ -34,7 +36,7 @@ class _PagesState extends State<Pages> {
 Widget Navbar(BuildContext context) {
   return Drawer(
     child: ListView(
-      padding: EdgeInsets.all(0),
+      // padding: EdgeInsets.all(0),
       children: [
         Column(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -55,14 +57,14 @@ Widget Navbar(BuildContext context) {
                     height: 20,
                   ),
                   Text(
-                    'House Owner',
+                    'Technician',
                     style: TextStyle(color: Colors.white),
                   ),
                   SizedBox(
                     height: 10,
                   ),
                   Text(
-                    'Ownermail@gmail.com',
+                    'Mike-SERV-194',
                     style: TextStyle(color: Colors.white),
                   ),
                 ],
@@ -75,13 +77,13 @@ Widget Navbar(BuildContext context) {
               style: TextStyle(fontSize: 15, fontWeight: FontWeight.bold)),
         ),
         ListTile(
-          leading: Icon(Icons.home),
-          title: Text('Home Id'),
+          leading: Icon(Icons.info_rounded),
+          title: Text('Vendor id'),
           onTap: () {},
         ),
         ListTile(
-          leading: Icon(Icons.streetview),
-          title: Text('Address'),
+          leading: Icon(Icons.account_box_rounded),
+          title: Text('Profession'),
           onTap: () {},
         ),
         ListTile(
@@ -102,22 +104,24 @@ Widget Navbar(BuildContext context) {
           ),
         ),
         ListTile(
-          leading: Icon(Icons.home_repair_service),
-          title: Text('Service Request'),
+          leading: Icon(Icons.miscellaneous_services_rounded),
+          title: Text('Service'),
           onTap: () {
-            Navigator.of(context).pushNamed(MyHomePage.routeName);
+            Navigator.of(context).pushNamed(MyList.routeTech);
           },
         ),
         ListTile(
           leading: Icon(Icons.history),
-          title: Text('History'),
+          title: Text('Service History'),
           onTap: () {},
         ),
         Divider(),
         ListTile(
           leading: Icon(Icons.logout),
           title: Text('Sign Out'),
-          onTap: () {},
+          onTap: () {
+            Navigator.of(context).pop();
+          },
         ),
       ],
     ),

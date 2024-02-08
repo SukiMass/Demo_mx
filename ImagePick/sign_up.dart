@@ -1,25 +1,22 @@
 import 'package:flutter/material.dart';
-import 'package:image_app/Technician/home.dart';
-import 'package:image_app/maintenance.dart';
 
-class LoginScreen extends StatefulWidget {
-  const LoginScreen({super.key});
-  static const routeName = '/loginScreen';
+class SignUp extends StatefulWidget {
+  const SignUp({super.key});
+  static const routeTech = '/SignupScreen';
 
   @override
-  State<LoginScreen> createState() => _LoginScreenState();
+  State<SignUp> createState() => _SignUpState();
 }
 
-class _LoginScreenState extends State<LoginScreen> {
+class _SignUpState extends State<SignUp> {
   final _formfield = GlobalKey<FormState>();
-  final emailController = TextEditingController();
-  final passController = TextEditingController();
-  bool passToggle = true;
-  var ownerPass = 'Owner@123';
-  var ownerUser = 'Ownerr@gmail.com';
+  final emailController1 = TextEditingController();
+  final passController1 = TextEditingController();
+  final conform_passController = TextEditingController();
 
-  var techPass = 'Techie@123';
-  var techUser = 'Tech@gmail.com';
+  bool passToggle = true;
+
+  bool confirm_passToggle = true;
 
   @override
   Widget build(BuildContext context) {
@@ -44,28 +41,24 @@ class _LoginScreenState extends State<LoginScreen> {
                 SizedBox(
                   height: 50,
                 ),
-                Email_field(),
+                Email_field1(),
                 SizedBox(
                   height: 20,
                 ),
                 Password_field(),
                 SizedBox(
+                  height: 20,
+                ),
+                Conform_Password_field(),
+                SizedBox(
                   height: 60,
                 ),
                 InkWell(
                   onTap: () {
-                    if (_formfield.currentState!.validate() ||
-                        ownerPass == passController ||
-                        ownerUser == emailController) {
-                      Navigator.of(context).pushNamed(MyHomePage.routeName);
-                      emailController.clear();
-                      passController.clear();
-                    } else if (_formfield.currentState!.validate() ||
-                        techPass == passController ||
-                        techUser == emailController) {
-                      Navigator.of(context).pushNamed(HomeTech.routeTech);
-                      emailController.clear();
-                      passController.clear();
+                    if (_formfield.currentState!.validate()) {
+                      // Navigator.of(context).pushNamed(MyHomePage.routeName);
+                      emailController1.clear();
+                      passController1.clear();
                     }
                   },
                   child: Container(
@@ -76,7 +69,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     ),
                     child: Center(
                       child: Text(
-                        'Log In',
+                        'Sign Up',
                         style: TextStyle(
                             color: Colors.white,
                             fontSize: 20,
@@ -88,29 +81,6 @@ class _LoginScreenState extends State<LoginScreen> {
                 SizedBox(
                   height: 20,
                 ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Text(
-                      'Already have an account?',
-                      style: TextStyle(
-                        fontSize: 16,
-                      ),
-                    ),
-                    TextButton(
-                      onPressed: () {
-                        // Navigator.of(context).pushNamed(Pages.routeName);
-                      },
-                      child: Text(
-                        'Sign Up',
-                        style: TextStyle(
-                          fontSize: 18,
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
-                    ),
-                  ],
-                )
               ],
             ),
           ),
@@ -130,9 +100,9 @@ class _LoginScreenState extends State<LoginScreen> {
     );
   }
 
-  Widget Email_field() {
+  Widget Email_field1() {
     return TextFormField(
-        controller: emailController,
+        controller: emailController1,
         keyboardType: TextInputType.emailAddress,
         decoration: InputDecoration(
           labelText: 'Email', //Email id
@@ -153,7 +123,7 @@ class _LoginScreenState extends State<LoginScreen> {
 
   Widget Password_field() {
     return TextFormField(
-      controller: passController,
+      controller: passController1,
       keyboardType: TextInputType.emailAddress,
       obscureText: passToggle,
       decoration: InputDecoration(
@@ -181,4 +151,36 @@ class _LoginScreenState extends State<LoginScreen> {
       },
     );
   }
+
+  Widget Conform_Password_field() {
+    return TextFormField(
+      controller: conform_passController,
+      keyboardType: TextInputType.emailAddress,
+      obscureText: passToggle,
+      decoration: InputDecoration(
+        labelText: 'Confirm Password', //password
+        border: OutlineInputBorder(),
+        prefixIcon: Icon(Icons.lock),
+        suffixIcon: InkWell(
+          onTap: () {
+            setState(() {
+              confirm_passToggle = !confirm_passToggle;
+            });
+          },
+          child: Icon(passToggle ? Icons.visibility_off : Icons.visibility),
+        ),
+      ),
+      validator: (value) {
+        bool passValid = RegExp(
+                r"^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[!@#$&*~]).{8,}$")
+            .hasMatch(value!);
+        if (passController1!=conform_passController) {
+          return 'Enter Confirm Password';
+        } else if (!passValid) {
+          return 'Enter Valid Confirm Password';
+        }
+      },
+    );
+  }
 }
+  

@@ -1,11 +1,13 @@
-import 'dart:io';
-
 import 'package:flutter/material.dart';
 import 'package:image_app/content.dart';
 import 'package:image_app/process.dart';
 import 'package:image_picker/image_picker.dart';
 
 class MyHomePage extends StatefulWidget {
+  const MyHomePage({super.key});
+
+  static const routeName = '/MaintenanceScreen';
+
   @override
   _MyHomePageState createState() => _MyHomePageState();
 }
