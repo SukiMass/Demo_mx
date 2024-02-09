@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:image_app/Technician/home.dart';
 import 'package:image_app/Technician/service.dart';
 import 'package:image_app/maintenance.dart';
@@ -6,6 +7,7 @@ import 'package:image_app/pages.dart';
 import 'login_screen.dart';
 
 void main() {
+  SystemUiOverlayStyle(statusBarColor: Colors.indigo);
   runApp(MyApp());
 }
 
@@ -16,9 +18,9 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-        primarySwatch: Colors.indigo,
-      ),
+      // theme: ThemeData(
+      //   primarySwatch: Colors.indigo,
+      // ),
       routes: {
         MyApp.routeName: (_) => MyApp(),
         LoginScreen.routeName: (_) => LoginScreen(),

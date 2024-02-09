@@ -38,7 +38,7 @@ class _ChecklistItemState extends State<ChecklistItem> {
       children: [
         IconButton(
           icon: widget.isChecked
-              ? Icon(Icons.check_circle)
+              ? Icon(Icons.check_circle,color: Colors.green[600],)
               : Icon(Icons.check_circle_outline),
           onPressed: () => widget.onChanged(!widget.isChecked),
         ),
@@ -127,6 +127,9 @@ class _MyListState extends State<MyList> {
                       ),
                       SizedBox(height: 10),
                       ElevatedButton(
+                        style: ElevatedButton.styleFrom(
+                        backgroundColor: Colors.indigo,
+                      ),
                         onPressed: item.isCompleted
                             ? () {
                                 showDialog(
@@ -135,23 +138,25 @@ class _MyListState extends State<MyList> {
                                       return Dialog(
                                           shape: RoundedRectangleBorder(
                                               borderRadius:
-                                                  BorderRadius.circular(20)),
+                                                  BorderRadius.circular(15)),
                                           elevation: 16,
                                           child: Container(
+                                            color: Colors.indigo,
                                               padding: EdgeInsets.all(15),
+                                              margin: EdgeInsets.all(10),
                                               child: Text(
-                                                'Service Completed!',
+                                                'Great work! You\'ve successfully completed all necessary steps. You\'ve addressed all repairs outlined in the checklist',
                                                 style: TextStyle(
-                                                    fontSize: 20,
+                                                    fontSize: 13,
                                                     fontWeight: FontWeight.w600,
-                                                    color: Colors.indigo),
+                                                    color: Colors.white),
                                               )));
                                     });
                               }
                             : null,
                         child: Text(
                           'Complete',
-                          style: TextStyle(fontWeight: FontWeight.bold),
+                          style: TextStyle(fontWeight: FontWeight.bold,color: Colors.white),
                         ),
                       ),
                     ],

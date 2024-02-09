@@ -126,7 +126,7 @@ Widget Navbar(BuildContext context) {
           leading: Icon(Icons.logout),
           title: Text('Sign Out'),
           onTap: () {
-            Navigator.of(context).pushNamed(LoginScreen.routeName);
+            Navigator.of(context).pop();
           },
         ),
       ],

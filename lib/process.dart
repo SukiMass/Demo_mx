@@ -33,8 +33,7 @@ class _ItemWidgetState extends State<ItemWidget> {
             Stack(
               children: [
                 TextFormField(
-                  decoration: InputDecoration(hintText: 'Maintenance'),
-                  initialValue: 'AC',
+                  decoration: InputDecoration(hintText: 'Issue'),
                   onChanged: (value) => widget.Item.title = value,
                 ),
                 // if (widget.Item.isChecked)
@@ -52,23 +51,64 @@ class _ItemWidgetState extends State<ItemWidget> {
             ),
             TextFormField(
               decoration: InputDecoration(hintText: 'Description'),
-              initialValue:
-                  ' Air conditioner making different sounds while switched on',
+              // initialValue:
+              //     ' Air conditioner making different sounds while switched on',
               onChanged: (value) => widget.Item.description = value,
             ),
-            Row(
-              // mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                // Checkbox(
-                //   value: widget.Item.isChecked,
-                //   onChanged: (value) =>
-                //       setState(() => widget.Item.isChecked = value!),
-                // ),
-                IconButton(
-                  onPressed: () => widget.onDelete(widget.index),
-                  icon: Icon(Icons.delete),
-                ),
-              ],
+            Padding(
+              padding: const EdgeInsets.only(bottom: 2),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  // Checkbox(
+                  //   value: widget.Item.isChecked,
+                  //   onChanged: (value) =>
+                  //       setState(() => widget.Item.isChecked = value!),
+                  // ),
+                  IconButton(
+                    onPressed: () => widget.onDelete(widget.index),
+                    icon: Icon(
+                      Icons.delete,
+                      color: Colors.red,
+                    ),
+                  ),
+                  Container(
+                    child: ElevatedButton(
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: Colors.indigo,
+                      ),
+                      onPressed: () {
+                        setState(() {
+                          showDialog(
+                              context: context,
+                              builder: (context) {
+                                return Dialog(
+                                    shape: RoundedRectangleBorder(
+                                        borderRadius:
+                                            BorderRadius.circular(15)),
+                                    elevation: 16,
+                                    child: Container(
+                                        color: Colors.indigo,
+                                        padding: EdgeInsets.all(15),
+                                        margin: EdgeInsets.all(10),
+                                        child: Text(
+                                          'We are sorry to hear about your issue,\nOur technician will Contact you shortly.',
+                                          style: TextStyle(
+                                              fontSize: 13,
+                                              fontWeight: FontWeight.w600,
+                                              color: Colors.white),
+                                        )));
+                              });
+                        });
+                      },
+                      child: Text(
+                        'Submit',
+                        style: TextStyle(color: Colors.white),
+                      ),
+                    ),
+                  ),
+                ],
+              ),
             )
           ],
         ),

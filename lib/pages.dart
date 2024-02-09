@@ -15,9 +15,10 @@ class _PagesState extends State<Pages> {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: Scaffold(
+        
         appBar: AppBar(
           iconTheme: IconThemeData(color: Colors.white),
-          backgroundColor: Colors.indigo,
+           backgroundColor: Colors.indigo,
           title: Text(
             'Home Page',
             style: TextStyle(color: Colors.white),

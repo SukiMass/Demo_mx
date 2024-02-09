@@ -16,7 +16,7 @@ class _LoginScreenState extends State<LoginScreen> {
   final passController = TextEditingController();
   bool passToggle = true;
   var ownerPass = 'Owner@123';
-  var ownerUser = 'Ownerr@gmail.com';
+  var ownerUser = 'Owner@gmail.com';
 
   var techPass = 'Techie@123';
   var techUser = 'Tech@gmail.com';
@@ -55,17 +55,13 @@ class _LoginScreenState extends State<LoginScreen> {
                 InkWell(
                   onTap: () {
                     setState(() {
-                      if (_formfield.currentState!.validate()||ownerPass == passController&&
+                      if (_formfield.currentState!.validate() ||
+                          ownerPass == passController ||
                           ownerUser == emailController) {
                         Navigator.of(context).pushNamed(Pages.routeName);
                         emailController.clear();
                         passController.clear();
                       }
-                     else {
-                      Navigator.of(context).pushNamed(HomeTech.routeTech);
-                      emailController.clear();
-                      passController.clear();
-                    }
                     });
                   },
                   child: Container(
@@ -76,7 +72,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     ),
                     child: Center(
                       child: Text(
-                        'Log In',
+                        'Login',
                         style: TextStyle(
                             color: Colors.white,
                             fontSize: 20,
