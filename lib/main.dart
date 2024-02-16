@@ -2,17 +2,18 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:image_app/Technician/home.dart';
 import 'package:image_app/Technician/service.dart';
+import 'package:image_app/chat_main.dart';
 import 'package:image_app/maintenance.dart';
 import 'package:image_app/pages.dart';
 import 'login_screen.dart';
 
 void main() {
-  SystemUiOverlayStyle(statusBarColor: Colors.indigo);
-  runApp(MyApp());
+  const SystemUiOverlayStyle(statusBarColor: Colors.indigo);
+  runApp(const Main());
 }
 
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+class Main extends StatelessWidget {
+  const Main({super.key});
   static const routeName = '/MainScreen';
   @override
   Widget build(BuildContext context) {
@@ -22,15 +23,16 @@ class MyApp extends StatelessWidget {
       //   primarySwatch: Colors.indigo,
       // ),
       routes: {
-        MyApp.routeName: (_) => MyApp(),
-        LoginScreen.routeName: (_) => LoginScreen(),
-        MyHomePage.routeName: (_) => MyHomePage(),
-        Pages.routeName: (_) => Pages(),
+        Main.routeName: (_) => const Main(),
+        LoginScreen.routeName: (_) => const LoginScreen(),
+        MyHomePage.routeName: (_) => const MyHomePage(),
+        Pages.routeName: (_) => const Pages(),
         MyList.routeTech: (_) => MyList(actualList: actualList),
-        HomeTech.routeTech: (_) => HomeTech(),
+        HomeTech.routeTech: (_) => const HomeTech(),
+        MyApp.routeChat: (_) => const MyApp(),
       },
-      //  initialRoute: MyApp.routeName,
-      home: LoginScreen(),
+      //  initialRoute: Main.routeName,
+      home: const LoginScreen(),
     );
   }
 }

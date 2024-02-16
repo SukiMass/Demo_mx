@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:image_app/Technician/service.dart';
-import 'package:image_app/login_screen.dart';
-import 'package:image_app/main.dart';
+
 
 class HomeTech extends StatefulWidget {
   const HomeTech({super.key});

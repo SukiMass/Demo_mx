@@ -68,7 +68,7 @@ class _MyHomePageState extends State<MyHomePage> {
     return Scaffold(
       appBar: AppBar(
         iconTheme: IconThemeData(color: Colors.white),
-        backgroundColor: Colors.indigo,
+        backgroundColor: Color(0xFF3F51B5),
         title: Text(
           'Service request',
           style: TextStyle(color: Colors.white),

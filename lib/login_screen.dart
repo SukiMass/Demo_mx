@@ -55,14 +55,14 @@ class _LoginScreenState extends State<LoginScreen> {
                 InkWell(
                   onTap: () {
                     setState(() {
-                      if (_formfield.currentState!.validate() ||
-                          ownerPass == passController ||
-                          ownerUser == emailController) {
+                      // if (_formfield.currentState!.validate() ||
+                      //     ownerPass == passController ||
+                      //     ownerUser == emailController) {
                         Navigator.of(context).pushNamed(Pages.routeName);
-                        emailController.clear();
-                        passController.clear();
-                      }
-                    });
+                    //     emailController.clear();
+                    //     passController.clear();
+                    //   }
+                     });
                   },
                   child: Container(
                     height: 50,

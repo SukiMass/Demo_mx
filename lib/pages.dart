@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:image_app/chat_main.dart';
 import 'package:image_app/maintenance.dart';
 
 class Pages extends StatefulWidget {
@@ -10,15 +11,13 @@ class Pages extends StatefulWidget {
 
 class _PagesState extends State<Pages> {
   @override
-  
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: Scaffold(
-        
         appBar: AppBar(
           iconTheme: IconThemeData(color: Colors.white),
-           backgroundColor: Colors.indigo,
+          backgroundColor: Colors.indigo,
           title: Text(
             'Home Page',
             style: TextStyle(color: Colors.white),
@@ -107,7 +106,7 @@ Widget Navbar(BuildContext context) {
           leading: Icon(Icons.home_repair_service),
           title: Text('Service Request'),
           onTap: () {
-            Navigator.of(context).pushNamed(MyHomePage.routeName);
+            Navigator.of(context).pushNamed(MyApp.routeChat);
           },
         ),
         ListTile(
