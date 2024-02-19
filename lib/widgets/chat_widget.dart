@@ -23,9 +23,10 @@ class ChatWidget extends StatelessWidget {
           color: scaffoldBackgroundColor,
           child: Padding(
             padding: const EdgeInsets.all(8.0),
-            child: Row(
-              crossAxisAlignment: CrossAxisAlignment.start,
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.end,
               children: [
+<<<<<<< HEAD
                 Column(
                   children: [
                     Padding(
@@ -39,6 +40,30 @@ class ChatWidget extends StatelessWidget {
                       ),
                     ),
                   ],
+=======
+                Align(
+                  alignment: Alignment.topLeft,
+                  child: Image.asset(
+                    chatIndex == 0
+                        ? AssetsManager.userImage
+                        : AssetsManager.botImage,
+                    height: 30,
+                    width: 30,
+                  ),
+                ),
+                Align(
+                  alignment: Alignment.topRight,
+                  child: Image.asset(
+                    chatIndex == 0
+                        ? AssetsManager.userImage
+                        : AssetsManager.botImage,
+                    height: 30,
+                    width: 30,
+                  ),
+                ),
+                const SizedBox(
+                  width: 8,
+>>>>>>> c27ff4fc22816d6f1072f6f29ff3c63fd3ff8c59
                 ),
                 Expanded(
                   child: chatIndex == 0
@@ -129,6 +154,28 @@ class ChatWidget extends StatelessWidget {
                               ),
                             ),
                 ),
+<<<<<<< HEAD
+=======
+                //     chatIndex == 0
+                //         ? const SizedBox.shrink()
+                //         : Row(
+                //             mainAxisAlignment: MainAxisAlignment.end,
+                //             mainAxisSize: MainAxisSize.min,
+                //             children: const [
+                //               // Icon(
+                //               //   Icons.thumb_up_alt_outlined,
+                //               //   color: Colors.white,
+                //               // ),
+                //               SizedBox(
+                //                 width: 5,
+                //               ),
+                //               // Icon(
+                //               //   Icons.thumb_down_alt_outlined,
+                //               //   color: Colors.white,
+                //               // )
+                //             ],
+                //           ),
+>>>>>>> c27ff4fc22816d6f1072f6f29ff3c63fd3ff8c59
               ],
             ),
           ),
