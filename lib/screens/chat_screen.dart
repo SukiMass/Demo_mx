@@ -1,16 +1,13 @@
 import 'dart:developer';
 
 import 'package:image_app/constants/constants.dart';
-import 'package:image_app/pages.dart';
 import 'package:image_app/providers/chats_provider.dart';
-import 'package:image_app/services/services.dart';
 import 'package:image_app/widgets/chat_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:provider/provider.dart';
 
 import '../providers/models_provider.dart';
-import '../services/assets_manager.dart';
 import '../widgets/text_widget.dart';
 
 class ChatScreen extends StatefulWidget {
