@@ -4,7 +4,7 @@ class TextWidget extends StatelessWidget {
   const TextWidget(
       {Key? key,
       required this.label,
-      this.fontSize = 18,
+      this.fontSize = 16,
       this.color,
       this.fontWeight})
       : super(key: key);
@@ -21,7 +21,7 @@ class TextWidget extends StatelessWidget {
       style: TextStyle(
         color: color ?? Colors.white,
         fontSize: fontSize,
-        fontWeight: fontWeight ?? FontWeight.w500,
+        fontWeight: fontWeight ?? FontWeight.w700,
       ),
     );
   }

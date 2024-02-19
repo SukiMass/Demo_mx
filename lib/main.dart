@@ -32,7 +32,7 @@ class Main extends StatelessWidget {
         MyApp.routeChat: (_) => const MyApp(),
       },
       //  initialRoute: Main.routeName,
-      home: const LoginScreen(),
+      home: const MyApp(),
     );
   }
 }
