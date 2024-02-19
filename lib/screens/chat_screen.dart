@@ -50,10 +50,10 @@ class _ChatScreenState extends State<ChatScreen> {
     return Scaffold(
       appBar: AppBar(
         elevation: 2,
-        leading: Padding(
-          padding: const EdgeInsets.all(8.0),
-          // child: Image.asset(AssetsManager.openaiLogo),
-        ),
+        // leading: Padding(
+        //   padding: const EdgeInsets.all(8.0),
+        //   // child: Image.asset(AssetsManager.openaiLogo),
+        // ),
         title: const Text(
           "Service Request",
           style: TextStyle(color: Colors.white),
@@ -150,7 +150,7 @@ class _ChatScreenState extends State<ChatScreen> {
       ScaffoldMessenger.of(context).showSnackBar(
         const SnackBar(
           content: TextWidget(
-            label: "You cant send multiple messages at a time",
+            label: "You can't send multiple messages at a time",
           ),
           backgroundColor: Colors.red,
         ),
