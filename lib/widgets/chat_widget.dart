@@ -26,7 +26,6 @@ class ChatWidget extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.end,
               children: [
-<<<<<<< HEAD
                 Column(
                   children: [
                     Padding(
@@ -40,7 +39,6 @@ class ChatWidget extends StatelessWidget {
                       ),
                     ),
                   ],
-=======
                 Align(
                   alignment: Alignment.topLeft,
                   child: Image.asset(
@@ -63,7 +61,6 @@ class ChatWidget extends StatelessWidget {
                 ),
                 const SizedBox(
                   width: 8,
->>>>>>> c27ff4fc22816d6f1072f6f29ff3c63fd3ff8c59
                 ),
                 Expanded(
                   child: chatIndex == 0
@@ -154,8 +151,6 @@ class ChatWidget extends StatelessWidget {
                               ),
                             ),
                 ),
-<<<<<<< HEAD
-=======
                 //     chatIndex == 0
                 //         ? const SizedBox.shrink()
                 //         : Row(
@@ -175,7 +170,6 @@ class ChatWidget extends StatelessWidget {
                 //               // )
                 //             ],
                 //           ),
->>>>>>> c27ff4fc22816d6f1072f6f29ff3c63fd3ff8c59
               ],
             ),
           ),
