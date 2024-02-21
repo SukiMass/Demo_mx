@@ -7,7 +7,7 @@ import 'package:provider/provider.dart';
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
-    static const routeChat = '/ChatScreen';
+  static const routeChat = '/ChatScreen';
 
   // This widget is the root of your application.
   @override

@@ -28,8 +28,8 @@ class _SignUpState extends State<SignUp> {
         child: Form(
           key: _formfield,
           child: Container(
-            padding: EdgeInsets.all(30),
-            margin: EdgeInsets.symmetric(horizontal: 20, vertical: 60),
+            padding: const EdgeInsets.all(30),
+            margin: const EdgeInsets.symmetric(horizontal: 20, vertical: 60),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.center,
               mainAxisAlignment: MainAxisAlignment.center,
@@ -40,19 +40,19 @@ class _SignUpState extends State<SignUp> {
                     'images/mxa-logo.png',
                   ),
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 50,
                 ),
                 Email_field1(),
-                SizedBox(
+                const SizedBox(
                   height: 20,
                 ),
                 Password_field(),
-                SizedBox(
+                const SizedBox(
                   height: 20,
                 ),
                 Conform_Password_field(),
-                SizedBox(
+                const SizedBox(
                   height: 60,
                 ),
                 InkWell(
@@ -69,7 +69,7 @@ class _SignUpState extends State<SignUp> {
                       color: Colors.indigo,
                       borderRadius: BorderRadius.circular(5),
                     ),
-                    child: Center(
+                    child: const Center(
                       child: Text(
                         'Sign Up',
                         style: TextStyle(
@@ -80,7 +80,7 @@ class _SignUpState extends State<SignUp> {
                     ),
                   ),
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 20,
                 ),
               ],
@@ -94,7 +94,7 @@ class _SignUpState extends State<SignUp> {
   AppBar MainBar() {
     return AppBar(
       backgroundColor: Colors.indigo,
-      title: Text(
+      title: const Text(
         'MXA Login',
         style: TextStyle(color: Colors.white),
       ),
@@ -106,7 +106,7 @@ class _SignUpState extends State<SignUp> {
     return TextFormField(
         controller: emailController1,
         keyboardType: TextInputType.emailAddress,
-        decoration: InputDecoration(
+        decoration: const InputDecoration(
           labelText: 'Email', //Email id
           border: OutlineInputBorder(),
           prefixIcon: Icon(Icons.email),
@@ -130,8 +130,8 @@ class _SignUpState extends State<SignUp> {
       obscureText: passToggle,
       decoration: InputDecoration(
         labelText: 'Password', //password
-        border: OutlineInputBorder(),
-        prefixIcon: Icon(Icons.lock),
+        border: const OutlineInputBorder(),
+        prefixIcon: const Icon(Icons.lock),
         suffixIcon: InkWell(
           onTap: () {
             setState(() {
@@ -161,8 +161,8 @@ class _SignUpState extends State<SignUp> {
       obscureText: passToggle,
       decoration: InputDecoration(
         labelText: 'Confirm Password', //password
-        border: OutlineInputBorder(),
-        prefixIcon: Icon(Icons.lock),
+        border: const OutlineInputBorder(),
+        prefixIcon: const Icon(Icons.lock),
         suffixIcon: InkWell(
           onTap: () {
             setState(() {

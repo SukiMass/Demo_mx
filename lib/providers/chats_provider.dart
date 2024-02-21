@@ -4,7 +4,9 @@ import '../models/chat_model.dart';
 import '../services/api_service.dart';
 
 class ChatProvider with ChangeNotifier {
-  List<ChatModel> chatList = [];
+  List<ChatModel> chatList = [
+    ChatModel(msg: 'How may I help you?', chatIndex: 1)
+  ];
   List<ChatModel> get getChatList {
     return chatList;
   }

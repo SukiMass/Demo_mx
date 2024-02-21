@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:image_app/Static_Page/static_chat.dart';
 import 'package:image_app/Technician/home.dart';
 import 'package:image_app/Technician/service.dart';
 import 'package:image_app/chat_main.dart';
@@ -30,9 +31,10 @@ class Main extends StatelessWidget {
         MyList.routeTech: (_) => MyList(actualList: actualList),
         HomeTech.routeTech: (_) => const HomeTech(),
         MyApp.routeChat: (_) => const MyApp(),
+        ChatScreens.routeStatic : (_) => const ChatScreens(),
       },
       //  initialRoute: Main.routeName,
-      home: const MyApp(),
+      home: const LoginScreen(),
     );
   }
 }

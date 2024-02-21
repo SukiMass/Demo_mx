@@ -43,7 +43,7 @@ class ChatWidget extends StatelessWidget {
                     ),
                   ),
                 Expanded(
-                  flex: 7,
+                  flex: 8,
                   child: chatIndex == 0
                       ? Align(
                           alignment: Alignment.topRight,

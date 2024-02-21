@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:image_app/Static_Page/static_chat.dart';
 import 'package:image_app/chat_main.dart';
 import 'package:image_app/maintenance.dart';
 
@@ -112,7 +113,9 @@ Widget Navbar(BuildContext context) {
         ListTile(
           leading: Icon(Icons.history),
           title: Text('History'),
-          onTap: () {},
+          onTap: () {
+            Navigator.of(context).pushReplacementNamed(ChatScreens.routeStatic);
+          },
         ),
         Divider(),
         ListTile(
